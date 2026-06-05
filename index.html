@@ -61,6 +61,8 @@
       font-size: 13px; color: var(--muted);
     }
     .breadcrumb span { color: var(--text); font-weight: 500; }
+    .breadcrumb a { color: var(--muted); cursor: pointer; text-decoration: none; transition: color 0.2s;}
+    .breadcrumb a:hover { color: var(--green); }
 
     /* ── HOME HERO ── */
     .home-hero { background: var(--green); }
@@ -82,8 +84,20 @@
     .btn-outline:hover { background: #c8f060; color: var(--green); }
 
     /* foto / canvas */
-    .hero-photo { width: 280px; height: 280px; flex-shrink: 0; border-radius: 0; overflow: visible; background: transparent; display: flex; align-items: center; justify-content: center; }
-    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-photo { 
+      width: 430px; /* Lo hice un poquitito más grande para que el paisaje luzca mejor */
+      height: 320px; 
+      flex-shrink: 0; 
+      border-radius: 20px; /* Le ponemos bordes redondeados estilo isla flotante */
+      overflow: hidden; /* Para que la imagen respete las esquinas redondeadas */
+      background-image: url('recursos/background.png'); /* Tu imagen de fondo */
+      background-size: cover; /* Hace que la imagen cubra todo el cuadro sin deformarse */
+      background-position: center; /* Centra la imagen justo detrás del perrito */
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Sombrita extra para que resalte del fondo verde */
+    }
 
     /* secciones */
     .home-section { padding: 52px 0; }
@@ -202,6 +216,47 @@
     .btn-send { background: var(--green); color: #fff; padding: 10px 28px; border-radius: 50px; font-size: 14px; font-weight: 600; cursor: pointer; border: none; transition: background .2s; font-family: inherit; }
     .btn-send:hover { background: var(--green-mid); }
 
+    /* ── ESTRUCTURA DE NUEVOS CASOS DE ESTUDIO ── */
+    .case-hero { padding: 40px 0 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+    .case-title { font-family: 'Playfair Display', serif; font-size: 32px; margin-bottom: 12px; color: var(--green); line-height: 1.1; }
+    .case-tagline { font-size: 14px; color: var(--text); line-height: 1.6; margin-bottom: 24px; max-width: 400px; }
+    .case-meta { display: flex; gap: 24px; flex-wrap: wrap; }
+    .meta-item { display: flex; flex-direction: column; gap: 4px; }
+    .meta-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+    .meta-value { font-size: 13px; color: var(--text); font-weight: 500; }
+    
+    .img-ph { background: rgba(28, 61, 46, 0.04); border: 1.5px dashed rgba(28, 61, 46, 0.2); border-radius: var(--radius); display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--muted); padding: 2rem; text-align: center; font-size: 13px; font-weight: 500; transition: all 0.2s; width: 100%; }
+    .img-ph:hover { background: rgba(28, 61, 46, 0.08); border-color: var(--green-mid); }
+    .img-ph svg { margin-bottom: 8px; opacity: 0.5; }
+
+    .case-content { padding: 0 0 60px; display: grid; grid-template-columns: 1fr 280px; gap: 24px; align-items: start; }
+    .case-main { display: flex; flex-direction: column; gap: 20px; }
+    .case-sidebar { display: flex; flex-direction: column; gap: 16px; position: sticky; top: 80px;}
+    
+    .case-section { background: var(--card-bg); border: 1px solid #e8e8e4; border-radius: var(--radius); padding: 24px; }
+    .case-num { font-size: 11px; font-weight: 600; color: var(--green-mid); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 8px; }
+    .case-heading { font-size: 18px; font-family: 'Playfair Display', serif; color: var(--green); margin-bottom: 12px; }
+    .case-body-text { font-size: 14px; color: var(--text); line-height: 1.7; }
+    
+    .problem-quote { font-size: 16px; font-weight: 500; color: var(--text); line-height: 1.5; border-left: 3px solid var(--accent); padding-left: 16px; margin: 12px 0; }
+    .data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; margin-top: 16px; }
+    .data-box { background: var(--bg); border-radius: 10px; padding: 16px; text-align: center; }
+    .data-num { font-size: 24px; font-weight: 600; color: var(--green); font-family: 'Playfair Display', serif;}
+    .data-desc { font-size: 11px; color: var(--muted); margin-top: 4px; line-height: 1.4; }
+    
+    .decision-box { background: #f0f7f3; border-radius: 10px; padding: 16px; margin-top: 16px; border: 1px solid #d4e8da; }
+    .decision-box p { font-size: 13px; color: var(--green-mid); line-height: 1.6; font-weight: 500; }
+    
+    .process-list { display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
+    .process-item { display: flex; gap: 12px; align-items: flex-start; }
+    .process-dot { width: 24px; height: 24px; border-radius: 50%; background: var(--green); color: #fff; font-size: 11px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: 600; }
+    .process-text { font-size: 13.5px; color: var(--text); line-height: 1.5; padding-top: 2px;}
+    .process-text strong { color: var(--green); }
+
+    .side-card { background: var(--card-bg); border: 1px solid #e8e8e4; border-radius: var(--radius); padding: 20px; }
+    .side-label { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
+    .tool-tag { display: inline-flex; background: var(--bg); border-radius: 6px; padding: 6px 10px; font-size: 12px; color: var(--text); margin: 0 4px 6px 0; font-weight: 500; border: 1px solid #e2e2de;}
+
     /* RESPONSIVE */
     @media (max-width: 768px) {
       .wrapper { padding: 0 20px; }
@@ -212,6 +267,7 @@
       .cards-3, .cards-3-img, .skills-grid, .projects-grid, .how-grid, .contact-grid { grid-template-columns: 1fr; }
       .about-hero { flex-direction: column; }
       .breadcrumb { padding: 14px 0 0; }
+      .case-hero, .case-content { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -294,7 +350,8 @@
           <div class="project-info">
             <h4>Bocados</h4>
             <p class="cat">App Móvil</p>
-            <button class="btn-case" onclick="showPage('projects')">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            <!-- ⬇️ Aquí actualicé el onclick para que abra la pestaña nueva -->
+            <button class="btn-case" onclick="showPage('case-bocados')">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
           </div>
         </div>
         <div class="project-card">
@@ -304,7 +361,8 @@
           <div class="project-info">
             <h4>Umi</h4>
             <p class="cat">App Móvil | Wayfinding UX</p>
-            <button class="btn-case" onclick="showPage('projects')">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            <!-- ⬇️ Aquí actualicé el onclick para que abra la pestaña nueva -->
+            <button class="btn-case" onclick="showPage('case-umi')">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
           </div>
         </div>
         <div class="project-card">
@@ -314,7 +372,8 @@
           <div class="project-info">
             <h4>La Nación</h4>
             <p class="cat">Branding físico y Digital</p>
-            <button class="btn-case" onclick="showPage('projects')">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            <!-- ⬇️ Aquí actualicé el onclick para que abra la pestaña nueva -->
+            <button class="btn-case" onclick="showPage('case-nacion')">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
           </div>
         </div>
       </div>
@@ -384,7 +443,7 @@
           <div class="proj-body">
             <h3>Bocados</h3><div><span class="tag">App Móvil</span></div>
             <p>Diseño de una app para explorar restaurantes y descubrir nuevas experiencias gastronómicas.</p>
-            <button class="btn-case">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            <button class="btn-case" onclick="showPage('case-bocados')">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
           </div>
         </div>
         <div class="proj-card-full" data-cat="app-movil">
@@ -392,7 +451,7 @@
           <div class="proj-body">
             <h3>Umi</h3><div><span class="tag">App Móvil</span></div>
             <p>Sistema de señalética integral que combina app móvil con pantallas táctiles y señalización física dentro del campus UMNG.</p>
-            <button class="btn-case">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            <button class="btn-case" onclick="showPage('case-umi')">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
           </div>
         </div>
         <div class="proj-card-full" data-cat="branding">
@@ -400,7 +459,7 @@
           <div class="proj-body">
             <h3>La Nación</h3><div><span class="tag">Branding</span></div>
             <p>Branding completo y diseño de logotipo para una papelería y miscelánea.</p>
-            <button class="btn-case">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            <button class="btn-case" onclick="showPage('case-nacion')">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
           </div>
         </div>
         <div class="proj-card-full" data-cat="3d">
@@ -408,7 +467,7 @@
           <div class="proj-body">
             <h3>Simulación Humo Dinámico</h3><div><span class="tag">3D</span></div>
             <p>Simulación 3D del humo de un carro derrapando, con fundamentos físicos aplicados en Maya.</p>
-            <button class="btn-case">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            <button class="btn-case" onclick="showPage('case-humo')">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
           </div>
         </div>
         <div class="proj-card-full" data-cat="app-movil">
@@ -416,7 +475,7 @@
           <div class="proj-body">
             <h3>Ciclo M</h3><div><span class="tag">App Móvil</span></div>
             <p>App para fomentar la economía circular mediante la gamificación del escaneo de productos reciclables en papelerías afiliadas.</p>
-            <button class="btn-case">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            <button class="btn-case" onclick="showPage('case-ciclom')">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
           </div>
         </div>
         <div class="proj-card-full" data-cat="3d">
@@ -431,7 +490,7 @@
           <div class="proj-body">
             <h3>Catedral Flotante</h3><div><span class="tag">3D</span></div>
             <p>El proyecto combina modelado modular, materiales PBR y un estilo visual estilizado, buscando equilibrio entre realismo y arte.</p>
-            <button class="btn-case">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            <button class="btn-case" onclick="showPage('case-catedral')">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
           </div>
         </div>
       </div>
@@ -453,9 +512,8 @@
     <div class="about-page">
       <div class="about-hero">
         <div class="about-photo">
-          <div class="photo-placeholder">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-            <span>Tu foto aquí</span>
+          <div class="project-img">
+            <img src="recursos/perfil.jpeg" alt="perfil">
           </div>
         </div>
         <div class="about-text">
@@ -564,6 +622,355 @@
         <label for="fmsg">Mensaje</label>
         <textarea id="fmsg" placeholder="Cuéntame sobre tu proyecto o propuesta..."></textarea>
         <button class="btn-send">Enviar Mensaje</button>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <span>© 2026 Thomas Garzón. Todos los derechos reservados</span>
+      <div class="footer-links"><a href="#" target="_blank">LinkedIn</a><a href="#" target="_blank">Hoja de vida</a><a href="#" target="_blank">Behance</a></div>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════ CASO 1: BOCADOS ═══════════ -->
+<div class="page" id="page-case-bocados">
+  <div class="wrapper">
+    <div class="breadcrumb"><a onclick="showPage('projects')">Proyectos</a> &rsaquo; <span>Bocados</span></div>
+    
+    <div class="case-hero">
+      <div>
+        <span class="tag">UX/UI · App Móvil</span>
+        <h1 class="case-title">Bocados</h1>
+        <p class="case-tagline">App móvil diseñada para acabar con la indecisión gastronómica en grupo mediante exploración visual intuitiva.</p>
+        <div class="case-meta">
+          <div class="meta-item"><span class="meta-label">Rol</span><span class="meta-value">Product Designer</span></div>
+          <div class="meta-item"><span class="meta-label">Plataforma</span><span class="meta-value">iOS & Android</span></div>
+        </div>
+      </div>
+      <div class="img-ph" style="height: 220px;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>Hero Image: Mockup App Bocados</span>
+      </div>
+    </div>
+
+    <div class="case-content">
+      <div class="case-main">
+        <div class="case-section">
+          <div class="case-num">01 — El Problema</div>
+          <div class="problem-quote">"Nunca sabemos qué comer, pasamos más tiempo decidiendo que comiendo."</div>
+          <div class="case-body-text">La parálisis por análisis afecta a los grupos de amigos al elegir un restaurante. Las apps actuales saturan al usuario con menús de texto largos y reseñas subjetivas, perdiendo el atractivo visual de la comida.</div>
+        </div>
+
+        <div class="case-section">
+          <div class="case-num">02 — Investigación</div>
+          <div class="case-heading">Mapeando la indecisión</div>
+          <div class="case-body-text">A través de encuestas y entrevistas a jóvenes de 18 a 25 años, descubrimos que la decisión de compra está impulsada por el antojo visual, no por el texto.</div>
+          <div class="data-grid">
+            <div class="data-box"><div class="data-num">85%</div><div class="data-desc">Tarda más de 15 min en decidir</div></div>
+            <div class="data-box"><div class="data-num">90%</div><div class="data-desc">Elige basado en fotos del plato</div></div>
+          </div>
+        </div>
+
+        <div class="case-section">
+          <div class="case-num">03 — La Solución</div>
+          <div class="case-heading">Exploración visual y "Match"</div>
+          <div class="case-body-text">Diseñé una interfaz centrada en la fotografía del alimento, eliminando ruido visual. Implementé una mecánica tipo 'Tinder' donde los usuarios deslizan platos que les apetecen, y la app genera un "match" en grupo cuando coinciden en un restaurante.</div>
+          <div style="display:flex; gap:12px; margin-top:20px;">
+            <div class="img-ph" style="height: 180px;"><span>Wireframe 1</span></div>
+            <div class="img-ph" style="height: 180px;"><span>UI Final (Match)</span></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="case-sidebar">
+        <div class="side-card">
+          <div class="side-label">Herramientas</div>
+          <span class="tool-tag">Figma</span><span class="tool-tag">Miro</span><span class="tool-tag">Typeform</span>
+        </div>
+        <div class="side-card">
+          <div class="side-label">Entregables</div>
+          <span class="tool-tag">User Flow</span><span class="tool-tag">Wireframes</span><span class="tool-tag">Prototipo Alta Fidelidad</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <span>© 2026 Thomas Garzón. Todos los derechos reservados</span>
+      <div class="footer-links"><a href="#" target="_blank">LinkedIn</a><a href="#" target="_blank">Hoja de vida</a><a href="#" target="_blank">Behance</a></div>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════ CASO 2: UMI ═══════════ -->
+<div class="page" id="page-case-umi">
+  <div class="wrapper">
+    <div class="breadcrumb"><a onclick="showPage('projects')">Proyectos</a> &rsaquo; <span>Umi</span></div>
+    
+    <div class="case-hero">
+      <div>
+        <span class="tag">Wayfinding · UX/UI</span>
+        <h1 class="case-title">Umi</h1>
+        <p class="case-tagline">Sistema de navegación integrado para el campus de la UMNG: app móvil, señalización física y kioscos táctiles.</p>
+        <div class="case-meta">
+          <div class="meta-item"><span class="meta-label">Rol</span><span class="meta-value">UX Researcher & UI Designer</span></div>
+        </div>
+      </div>
+      <div class="img-ph" style="height: 220px;"><span>Hero Image: Ecosistema Umi (App + Kiosco)</span></div>
+    </div>
+
+    <div class="case-content">
+      <div class="case-main">
+        <div class="case-section">
+          <div class="case-num">01 — El Problema</div>
+          <div class="problem-quote">"Los estudiantes llegan tarde a clases porque la señalización del campus es inconsistente."</div>
+          <div class="case-body-text">El problema en la UMNG no era solo la falta de letreros, era sistémico. No existía un puente entre cómo el estudiante busca un aula en su horario y cómo la encuentra en la vida real.</div>
+        </div>
+
+        <div class="case-section">
+          <div class="case-num">02 — La Decisión Clave</div>
+          <div class="case-heading">Más allá de la pantalla</div>
+          <div class="case-body-text">La idea inicial era una app, pero la investigación reveló que los estudiantes no quieren mirar el celular mientras caminan rápido. La solución exigía conectar el espacio digital (App) con el físico (Pantallas táctiles y tótems).</div>
+          <div class="decision-box"><p>El diseño de experiencia no termina en el borde del teléfono; debe vivir en el entorno físico del usuario.</p></div>
+        </div>
+
+        <div class="case-section">
+          <div class="case-num">03 — Proceso</div>
+          <div class="process-list">
+            <div class="process-item"><div class="process-dot">1</div><div class="process-text"><strong>Investigación:</strong> Encuestas a +80 estudiantes sobre rutas frecuentes.</div></div>
+            <div class="process-item"><div class="process-dot">2</div><div class="process-text"><strong>Arquitectura:</strong> Mapeo completo del campus y codificación por colores de bloques.</div></div>
+            <div class="process-item"><div class="process-dot">3</div><div class="process-text"><strong>Prototipado omnicanal:</strong> Diseño responsivo para móvil y gran formato (kiosco).</div></div>
+          </div>
+          <div style="display:flex; gap:12px; margin-top:20px;">
+            <div class="img-ph" style="height: 140px;"><span>Mapa Kiosco</span></div>
+            <div class="img-ph" style="height: 140px;"><span>App Móvil Ruta</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="case-sidebar">
+        <div class="side-card">
+          <div class="side-label">Herramientas</div>
+          <span class="tool-tag">Figma</span><span class="tool-tag">Illustrator</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <span>© 2026 Thomas Garzón. Todos los derechos reservados</span>
+      <div class="footer-links"><a href="#" target="_blank">LinkedIn</a><a href="#" target="_blank">Hoja de vida</a><a href="#" target="_blank">Behance</a></div>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════ CASO 3: LA NACIÓN ═══════════ -->
+<div class="page" id="page-case-nacion">
+  <div class="wrapper">
+    <div class="breadcrumb"><a onclick="showPage('projects')">Proyectos</a> &rsaquo; <span>La Nación</span></div>
+    
+    <div class="case-hero">
+      <div>
+        <span class="tag">Identidad Visual · Branding</span>
+        <h1 class="case-title">La Nación</h1>
+        <p class="case-tagline">Rebranding completo para una papelería tradicional, modernizando su imagen sin perder la cercanía con su clientela local.</p>
+        <div class="case-meta">
+          <div class="meta-item"><span class="meta-label">Rol</span><span class="meta-value">Diseñador Gráfico</span></div>
+        </div>
+      </div>
+      <div class="img-ph" style="height: 220px;"><span>Hero Image: Mockup Papelería La Nación (Bolsas, Letrero)</span></div>
+    </div>
+
+    <div class="case-content">
+      <div class="case-main">
+        <div class="case-section">
+          <div class="case-num">01 — Contexto</div>
+          <div class="case-body-text">La Nación es una miscelánea con 15 años de trayectoria. Sin embargo, su comunicación visual era nula y fragmentada, lo que le impedía atraer al público joven de los colegios aledaños frente a competidores más modernos.</div>
+        </div>
+
+        <div class="case-section">
+          <div class="case-num">02 — Solución Visual</div>
+          <div class="case-heading">Equilibrio entre tradición y modernidad</div>
+          <div class="case-body-text">El objetivo era construir una marca confiable pero fresca. Se diseñó un isotipo abstracto basado en artículos de papelería (geometría simple) junto con una tipografía Sans Serif robusta que garantiza legibilidad en avisos exteriores y redes sociales.</div>
+          <div class="decision-box"><p>Se definió una paleta cromática CMYK altamente contrastante para garantizar que los impresos físicos (volantes, bolsas) mantuvieran la misma fuerza que los post de Instagram.</p></div>
+        </div>
+
+        <div class="case-section">
+          <div class="case-num">03 — Aplicaciones</div>
+          <div style="display:flex; gap:12px; margin-top:10px;">
+            <div class="img-ph" style="height: 200px;"><span>Manual de Marca</span></div>
+            <div class="img-ph" style="height: 200px;"><span>Mockup Papelería Fachada</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="case-sidebar">
+        <div class="side-card">
+          <div class="side-label">Herramientas</div>
+          <span class="tool-tag">Illustrator</span><span class="tool-tag">Photoshop</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <span>© 2026 Thomas Garzón. Todos los derechos reservados</span>
+      <div class="footer-links"><a href="#" target="_blank">LinkedIn</a><a href="#" target="_blank">Hoja de vida</a><a href="#" target="_blank">Behance</a></div>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════ CASO 4: SIMULACIÓN HUMO ═══════════ -->
+<div class="page" id="page-case-humo">
+  <div class="wrapper">
+    <div class="breadcrumb"><a onclick="showPage('projects')">Proyectos</a> &rsaquo; <span>Simulación Humo</span></div>
+    
+    <div class="case-hero">
+      <div>
+        <span class="tag">Simulación 3D · VFX</span>
+        <h1 class="case-title">Humo Dinámico</h1>
+        <p class="case-tagline">Simulación física avanzada de la disipación del humo generado por la fricción de un neumático derrapando.</p>
+        <div class="case-meta">
+          <div class="meta-item"><span class="meta-label">Software</span><span class="meta-value">Autodesk Maya</span></div>
+        </div>
+      </div>
+      <div class="img-ph" style="height: 220px;"><span>Hero Image: Render Final Humo Derrape</span></div>
+    </div>
+
+    <div class="case-content">
+      <div class="case-main">
+        <div class="case-section">
+          <div class="case-num">01 — El Reto Técnico</div>
+          <div class="problem-quote">Lograr un comportamiento físico hiperrealista sin sobrecargar la memoria caché ni los tiempos de renderizado.</div>
+          <div class="case-body-text">Simular fluidos (como el humo) en reacción a objetos a alta velocidad requiere una meticulosa configuración de colisiones y fuerzas. El objetivo era lograr que el humo interactuara de forma natural con la aerodinámica del vehículo.</div>
+        </div>
+
+        <div class="case-section">
+          <div class="case-num">02 — Proceso y Configuración</div>
+          <div class="process-list">
+            <div class="process-item"><div class="process-dot">1</div><div class="process-text"><strong>Emisores condicionados:</strong> Configuración de partículas emitidas solo cuando hay fricción específica (basado en velocidad angular del neumático).</div></div>
+            <div class="process-item"><div class="process-dot">2</div><div class="process-text"><strong>Vórtices y Turbulencia:</strong> Aplicación de campos de fuerza para imitar las corrientes de viento cortadas por el chasis del auto.</div></div>
+            <div class="process-item"><div class="process-dot">3</div><div class="process-text"><strong>Shading volumétrico:</strong> Materiales en Arnold configurados para reaccionar a la luz direccional y calcular la densidad del humo (Scatter/Absorption).</div></div>
+          </div>
+        </div>
+        
+        <div class="case-section">
+          <div class="case-num">03 — Aprendizaje</div>
+          <div class="case-body-text">El mayor aprendizaje fue el manejo de la resolución del contenedor de fluidos (Voxel Size). Descubrí cómo optimizar la simulación trabajando en baja resolución y renderizando con ruido añadido por shader, ahorrando horas de procesamiento.</div>
+        </div>
+      </div>
+      <div class="case-sidebar">
+        <div class="side-card">
+          <div class="side-label">Herramientas</div>
+          <span class="tool-tag">Autodesk Maya</span><span class="tool-tag">Arnold Render</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <span>© 2026 Thomas Garzón. Todos los derechos reservados</span>
+      <div class="footer-links"><a href="#" target="_blank">LinkedIn</a><a href="#" target="_blank">Hoja de vida</a><a href="#" target="_blank">Behance</a></div>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════ CASO 5: CICLO M ═══════════ -->
+<div class="page" id="page-case-ciclom">
+  <div class="wrapper">
+    <div class="breadcrumb"><a onclick="showPage('projects')">Proyectos</a> &rsaquo; <span>Ciclo M</span></div>
+    
+    <div class="case-hero">
+      <div>
+        <span class="tag">App Móvil · UX Gamification</span>
+        <h1 class="case-title">Ciclo M</h1>
+        <p class="case-tagline">Gamificando la economía circular: escanea productos reciclables en papelerías afiliadas y obtén recompensas.</p>
+        <div class="case-meta">
+          <div class="meta-item"><span class="meta-label">Rol</span><span class="meta-value">UI/UX Designer</span></div>
+        </div>
+      </div>
+      <div class="img-ph" style="height: 220px;"><span>Hero Image: Mockup App Ciclo M UI</span></div>
+    </div>
+
+    <div class="case-content">
+      <div class="case-main">
+        <div class="case-section">
+          <div class="case-num">01 — El Problema</div>
+          <div class="case-body-text">A pesar de la conciencia ambiental, los estudiantes raramente reciclan útiles escolares por falta de un incentivo inmediato y desconocimiento de puntos de acopio.</div>
+        </div>
+
+        <div class="case-section">
+          <div class="case-num">02 — Estrategia de Diseño</div>
+          <div class="case-heading">Motivación a través de recompensas</div>
+          <div class="case-body-text">Diseñé el flujo de usuario enfocándome en una gratificación instantánea. La app integra un escáner fácil de usar que permite al usuario registrar papel y cartón en papelerías locales, traduciendo ese peso en puntos visualizados en un dashboard gamificado.</div>
+          <div style="display:flex; gap:12px; margin-top:20px;">
+            <div class="img-ph" style="height: 180px;"><span>UI Dashboard Puntos</span></div>
+            <div class="img-ph" style="height: 180px;"><span>UI Escáner QR</span></div>
+          </div>
+        </div>
+
+        <div class="case-section">
+          <div class="case-num">03 — Resultado UX</div>
+          <div class="case-body-text">El uso de microinteracciones de celebración al completar un hito de reciclaje aumenta la retención del usuario, transformando un deber ambiental en una experiencia lúdica y beneficiosa para comercios locales.</div>
+        </div>
+      </div>
+      <div class="case-sidebar">
+        <div class="side-card">
+          <div class="side-label">Herramientas</div>
+          <span class="tool-tag">Figma</span><span class="tool-tag">Whimsical (Flujos)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <span>© 2026 Thomas Garzón. Todos los derechos reservados</span>
+      <div class="footer-links"><a href="#" target="_blank">LinkedIn</a><a href="#" target="_blank">Hoja de vida</a><a href="#" target="_blank">Behance</a></div>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════ CASO 6: CATEDRAL FLOTANTE ═══════════ -->
+<div class="page" id="page-case-catedral">
+  <div class="wrapper">
+    <div class="breadcrumb"><a onclick="showPage('projects')">Proyectos</a> &rsaquo; <span>Catedral Flotante</span></div>
+    
+    <div class="case-hero">
+      <div>
+        <span class="tag">Entorno 3D · Modelado</span>
+        <h1 class="case-title">Catedral Flotante</h1>
+        <p class="case-tagline">Diorama 3D estilizado aplicando flujos de trabajo de videojuegos: modelado modular y texturizado PBR.</p>
+        <div class="case-meta">
+          <div class="meta-item"><span class="meta-label">Software</span><span class="meta-value">Maya, Substance Painter</span></div>
+        </div>
+      </div>
+      <div class="img-ph" style="height: 220px;"><span>Hero Image: Render Completo Catedral Flotante</span></div>
+    </div>
+
+    <div class="case-content">
+      <div class="case-main">
+        <div class="case-section">
+          <div class="case-num">01 — Optimización para Tiempo Real</div>
+          <div class="case-body-text">Crear entornos arquitectónicos complejos puede disparar el conteo de polígonos. El reto fue diseñar una ruina gótica visualmente impactante, pero totalmente optimizada como si estuviera destinada a un motor de videojuegos (Game Ready).</div>
+        </div>
+
+        <div class="case-section">
+          <div class="case-num">02 — Flujo de Trabajo Modular</div>
+          <div class="process-list">
+            <div class="process-item"><div class="process-dot">1</div><div class="process-text"><strong>Trim Sheets:</strong> En lugar de texturizar cada columna, diseñé atlas de texturas reutilizables para aplicar a decenas de piezas distintas.</div></div>
+            <div class="process-item"><div class="process-dot">2</div><div class="process-text"><strong>Kitbashing:</strong> Creación de un set de piezas modulares (arcos, paredes rotas, pilares) que ensamblan encajando en una grilla perfecta.</div></div>
+            <div class="process-item"><div class="process-dot">3</div><div class="process-text"><strong>PBR Workflow:</strong> Texturizado en Substance Painter priorizando el desgaste (Roughness y Normal Maps) para dar historia al entorno.</div></div>
+          </div>
+          <div style="display:flex; gap:12px; margin-top:20px;">
+            <div class="img-ph" style="height: 200px;"><span>Desglose de Módulos (Grid)</span></div>
+            <div class="img-ph" style="height: 200px;"><span>Mapa de Texturas (Trim)</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="case-sidebar">
+        <div class="side-card">
+          <div class="side-label">Herramientas</div>
+          <span class="tool-tag">Autodesk Maya</span><span class="tool-tag">Substance 3D Painter</span><span class="tool-tag">Marmoset / Sketchfab</span>
+        </div>
       </div>
     </div>
   </div>
