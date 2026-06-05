@@ -18,16 +18,29 @@
       --muted:     #6b7280;
       --radius:    14px;
       --nav-h:     60px;
+      --max-w:     1100px;
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+    /* ── WRAPPER CENTRAL ── */
+    .wrapper {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 32px;
+    }
 
     /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       height: var(--nav-h); background: var(--green);
+    }
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      height: 100%;
+      padding: 0 32px;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 40px;
     }
     .nav-logo { width: 38px; height: 38px; cursor: pointer; display: flex; align-items: center; }
     .nav-logo svg { width: 100%; height: 100%; }
@@ -43,11 +56,20 @@
     @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 
     /* BREADCRUMB */
-    .breadcrumb { padding: 18px 60px 0; font-size: 13px; color: var(--muted); }
+    .breadcrumb {
+      padding: 18px 0 0;
+      font-size: 13px; color: var(--muted);
+    }
     .breadcrumb span { color: var(--text); font-weight: 500; }
 
     /* ── HOME HERO ── */
-    .home-hero { background: var(--green); padding: 56px 60px 60px; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+    .home-hero { background: var(--green); }
+    .home-hero-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 56px 32px 60px;
+      display: flex; align-items: center; justify-content: space-between; gap: 40px;
+    }
     .hero-text h3 { color: #a8c8b4; font-weight: 400; font-size: 15px; margin-bottom: 6px; }
     .hero-text h1 { font-family: 'Playfair Display', serif; font-size: clamp(36px,5vw,52px); color: #fff; line-height: 1.1; margin-bottom: 8px; }
     .hero-text .subtitle { color: #c8f060; font-size: 17px; font-weight: 600; margin-bottom: 20px; }
@@ -59,13 +81,12 @@
     .btn-outline { background: transparent; border: 1.5px solid #c8f060; color: #c8f060; padding: 10px 24px; border-radius: 50px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all .2s; font-family: inherit; }
     .btn-outline:hover { background: #c8f060; color: var(--green); }
 
-    /* foto */
-    .hero-photo { width: 200px; height: 220px; flex-shrink: 0; border-radius: 16px; overflow: hidden; background: #2a4a38; display: flex; align-items: center; justify-content: center; }
+    /* foto / canvas */
+    .hero-photo { width: 280px; height: 280px; flex-shrink: 0; border-radius: 0; overflow: visible; background: transparent; display: flex; align-items: center; justify-content: center; }
     .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
-    .photo-placeholder { display: flex; flex-direction: column; align-items: center; gap: 8px; color: #4a7060; font-size: 12px; text-align: center; padding: 16px; }
 
     /* secciones */
-    .home-section { padding: 52px 60px; }
+    .home-section { padding: 52px 0; }
     .home-section + .home-section { border-top: 1px solid #e2e2de; }
     .section-title { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 28px; }
 
@@ -81,9 +102,9 @@
     .cards-3-img { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
     .project-card { background: var(--card-bg); border-radius: var(--radius); overflow: hidden; border: 1px solid #e8e8e4; transition: box-shadow .2s; }
     .project-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,.1); }
-    .project-img { width: 100%; height: 150px; background: #dde8e2; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .project-img { width: 100%; height: 180px; background: #dde8e2; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
     .project-img img { width: 100%; height: 100%; object-fit: cover; }
-    .img-placeholder { display: flex; flex-direction: column; align-items: center; gap: 6px; color: #8aaa98; font-size: 11px; text-align: center; }
+    .img-placeholder { position: absolute; display: flex; flex-direction: column; align-items: center; gap: 6px; color: #8aaa98; font-size: 11px; text-align: center; }
     .project-info { padding: 16px; }
     .project-info h4 { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
     .project-info .cat { font-size: 12px; color: var(--muted); margin-bottom: 12px; }
@@ -101,13 +122,20 @@
     .skill-card ul li::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 5px; height: 5px; border-radius: 50%; background: var(--green-mid); }
 
     /* footer */
-    footer { background: var(--green); color: #a8c8b4; padding: 20px 60px; display: flex; align-items: center; justify-content: space-between; font-size: 13px; }
+    footer { background: var(--green); color: #a8c8b4; }
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 20px 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 13px;
+    }
     .footer-links { display: flex; gap: 24px; }
     .footer-links a { color: #a8c8b4; text-decoration: none; transition: color .2s; cursor: pointer; }
     .footer-links a:hover { color: #fff; }
 
     /* ── PROJECTS PAGE ── */
-    .projects-page { padding: 40px 60px 60px; }
+    .projects-page { padding: 40px 0 60px; }
     .projects-page h1 { font-family: 'Playfair Display', serif; font-size: 36px; margin-bottom: 6px; }
     .projects-divider { width: 48px; height: 2px; background: var(--green); margin-bottom: 28px; }
     .filters { display: flex; gap: 10px; margin-bottom: 32px; flex-wrap: wrap; }
@@ -125,10 +153,11 @@
     .proj-body p { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 16px; }
 
     /* ── ABOUT PAGE ── */
-    .about-page { padding: 40px 60px 60px; }
+    .about-page { padding: 40px 0 60px; }
     .about-hero { display: flex; align-items: flex-start; gap: 48px; margin-bottom: 48px; }
     .about-photo { width: 200px; height: 220px; flex-shrink: 0; border-radius: 16px; overflow: hidden; background: #dde8e2; display: flex; align-items: center; justify-content: center; }
     .about-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .photo-placeholder { display: flex; flex-direction: column; align-items: center; gap: 8px; color: #4a7060; font-size: 12px; text-align: center; padding: 16px; }
     .about-text h3 { color: var(--muted); font-weight: 400; font-size: 14px; margin-bottom: 4px; }
     .about-text h1 { font-family: 'Playfair Display', serif; font-size: 36px; margin-bottom: 6px; }
     .about-text .subtitle { color: var(--green-mid); font-size: 16px; font-weight: 600; margin-bottom: 16px; }
@@ -150,7 +179,7 @@
     .cv-badge { display: inline-block; background: #e8e8e4; color: var(--muted); font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 50px; align-self: flex-end; }
 
     /* ── CONTACT PAGE ── */
-    .contact-page { padding: 40px 60px 60px; }
+    .contact-page { padding: 40px 0 60px; }
     .contact-page h1 { font-family: 'Playfair Display', serif; font-size: 36px; margin-bottom: 6px; }
     .contact-page .lead { font-size: 15px; color: var(--muted); margin-bottom: 36px; }
     .contact-page .lead strong { color: var(--text); }
@@ -175,14 +204,14 @@
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
-      nav { padding: 0 20px; }
-      .home-hero { flex-direction: column-reverse; padding: 40px 24px; }
+      .wrapper { padding: 0 20px; }
+      .nav-inner { padding: 0 20px; }
+      .footer-inner { padding: 16px 20px; flex-direction: column; gap: 12px; text-align: center; }
+      .home-hero-inner { flex-direction: column-reverse; padding: 40px 20px; }
       .hero-photo { width: 140px; height: 160px; }
-      .home-section, .projects-page, .about-page, .contact-page { padding: 32px 24px; }
       .cards-3, .cards-3-img, .skills-grid, .projects-grid, .how-grid, .contact-grid { grid-template-columns: 1fr; }
       .about-hero { flex-direction: column; }
-      footer { flex-direction: column; gap: 12px; text-align: center; }
-      .breadcrumb { padding: 14px 24px 0; }
+      .breadcrumb { padding: 14px 0 0; }
     }
   </style>
 </head>
@@ -190,108 +219,103 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo" onclick="showPage('home')">
-    <img src="recursos/logo.svg" alt="Logo Thomas Garzón" style="width:38px; height:38px;">
-  </div>
-  <div class="nav-links">
-    <a onclick="showPage('projects')">Proyectos</a>
-    <a onclick="showPage('about')">Sobre Mí</a>
-    <button class="btn-outline-nav" onclick="showPage('contact')">Contáctame</button>
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="showPage('home')">
+      <img src="recursos/logo.svg" alt="Logo Thomas Garzón" style="width:38px; height:38px;">
+    </div>
+    <div class="nav-links">
+      <a onclick="showPage('projects')">Proyectos</a>
+      <a onclick="showPage('about')">Sobre Mí</a>
+      <button class="btn-outline-nav" onclick="showPage('contact')">Contáctame</button>
+    </div>
   </div>
 </nav>
 
 <!-- ═══════════ HOME ═══════════ -->
 <div class="page active" id="page-home">
   <div class="home-hero">
-    <div class="hero-text">
-      <h3>Hola, soy</h3>
-      <h1>Thomas Garzón</h1>
-      <p class="subtitle">Ingeniero Multimedia</p>
-      <div class="hero-divider"></div>
-      <p>Diseño experiencias digitales estratégicas que combinan investigación, estructura y estética.</p>
-      <div class="hero-btns">
-        <button class="btn-solid" onclick="showPage('projects')">Ver Proyectos</button>
-        <button class="btn-outline" onclick="showPage('contact')">Contáctame</button>
+    <div class="home-hero-inner">
+      <div class="hero-text">
+        <h3>Hola, soy</h3>
+        <h1>Thomas Garzón</h1>
+        <p class="subtitle">Ingeniero Multimedia</p>
+        <div class="hero-divider"></div>
+        <p>Diseño experiencias digitales estratégicas que combinan investigación, estructura y estética.</p>
+        <div class="hero-btns">
+          <button class="btn-solid" onclick="showPage('projects')">Ver Proyectos</button>
+          <button class="btn-outline" onclick="showPage('contact')">Contáctame</button>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <canvas id="hero-canvas" style="width:100%; height:100%; cursor:grab;"></canvas>
       </div>
     </div>
-    <div class="hero-photo" style="width:280px; height:280px; background:transparent; border-radius:0; overflow:visible;">
-      <canvas id="hero-canvas" style="width:100%; height:100%; cursor:grab;"></canvas>
-    </div>
-    
   </div>
 
   <!-- Qué hago -->
   <div class="home-section">
-    <h2 class="section-title">¿Qué Hago?</h2>
-    <div class="cards-3">
-      <div class="service-card">
-        <div class="icon-wrap">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <div class="wrapper">
+      <h2 class="section-title">¿Qué Hago?</h2>
+      <div class="cards-3">
+        <div class="service-card">
+          <div class="icon-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </div>
+          <h4>Investigación</h4>
+          <p>Análisis y UX Research</p>
         </div>
-        <h4>Investigación</h4>
-        <p>Análisis y UX Research</p>
-      </div>
-      <div class="service-card">
-        <div class="icon-wrap">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        <div class="service-card">
+          <div class="icon-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <h4>Diseño de Interfaz</h4>
+          <p>UI &amp; Prototipos</p>
         </div>
-        <h4>Diseño de Interfaz</h4>
-        <p>UI &amp; Prototipos</p>
-      </div>
-      <div class="service-card">
-        <div class="icon-wrap">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <div class="service-card">
+          <div class="icon-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <h4>Arquitectura y Sistemas</h4>
+          <p>Estructura y Flujos</p>
         </div>
-        <h4>Arquitectura y Sistemas</h4>
-        <p>Estructura y Flujos</p>
       </div>
     </div>
   </div>
 
   <!-- Proyectos destacados -->
   <div class="home-section">
-    <h2 class="section-title">Proyectos Destacados</h2>
-    <div class="cards-3-img">
-      <div class="project-card">
-        <div class="project-img">
-          <img src="recursos/1.png" alt="Bocados App">
-          <div class="img-placeholder">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-            <span>Bocados</span>
+    <div class="wrapper">
+      <h2 class="section-title">Proyectos Destacados</h2>
+      <div class="cards-3-img">
+        <div class="project-card">
+          <div class="project-img">
+            <img src="recursos/1.png" alt="Bocados App">
+          </div>
+          <div class="project-info">
+            <h4>Bocados</h4>
+            <p class="cat">App Móvil</p>
+            <button class="btn-case" onclick="showPage('projects')">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
           </div>
         </div>
-        <div class="project-info">
-          <h4>Bocados</h4>
-          <p class="cat">App Móvil</p>
-          <button class="btn-case" onclick="showPage('projects')">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-img">
-          <img src="recursos/2.png" alt="Umi">
-          <div class="img-placeholder">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-            <span>Umi</span>
+        <div class="project-card">
+          <div class="project-img">
+            <img src="recursos/2.png" alt="Umi">
+          </div>
+          <div class="project-info">
+            <h4>Umi</h4>
+            <p class="cat">App Móvil | Wayfinding UX</p>
+            <button class="btn-case" onclick="showPage('projects')">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
           </div>
         </div>
-        <div class="project-info">
-          <h4>Umi</h4>
-          <p class="cat">App Móvil | Wayfinding UX</p>
-          <button class="btn-case" onclick="showPage('projects')">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-img">
-          <img src="recursos/3.png" alt="La Nación">
-          <div class="img-placeholder">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-            <span>La Nación</span>
+        <div class="project-card">
+          <div class="project-img">
+            <img src="recursos/3.png" alt="La Nación"> 
           </div>
-        </div>
-        <div class="project-info">
-          <h4>La Nación</h4>
-          <p class="cat">Branding físico y Digital</p>
-          <button class="btn-case" onclick="showPage('projects')">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+          <div class="project-info">
+            <h4>La Nación</h4>
+            <p class="cat">Branding físico y Digital</p>
+            <button class="btn-case" onclick="showPage('projects')">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+          </div>
         </div>
       </div>
     </div>
@@ -299,38 +323,42 @@
 
   <!-- Habilidades -->
   <div class="home-section">
-    <h2 class="section-title">Mis Habilidades</h2>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <div class="icon-wrap">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+    <div class="wrapper">
+      <h2 class="section-title">Mis Habilidades</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="icon-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <h4>Diseño</h4>
+          <ul><li>UI / UX</li><li>Identidad Visual</li></ul>
         </div>
-        <h4>Diseño</h4>
-        <ul><li>UI / UX</li><li>Identidad Visual</li></ul>
-      </div>
-      <div class="skill-card">
-        <div class="icon-wrap">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <div class="skill-card">
+          <div class="icon-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <h4>3D</h4>
+          <ul><li>Modelado 3D</li><li>Renderizado</li></ul>
         </div>
-        <h4>3D</h4>
-        <ul><li>Modelado 3D</li><li>Renderizado</li></ul>
-      </div>
-      <div class="skill-card">
-        <div class="icon-wrap">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        <div class="skill-card">
+          <div class="icon-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h4>Desarrollo</h4>
+          <ul><li>Prototipado</li><li>Arquitectura UX</li></ul>
         </div>
-        <h4>Desarrollo</h4>
-        <ul><li>Prototipado</li><li>Arquitectura UX</li></ul>
       </div>
     </div>
   </div>
 
   <footer>
-    <span>© 2026 Thomas Garzón. Todos los derechos reservados</span>
-    <div class="footer-links">
-      <a href="#" target="_blank">LinkedIn</a>
-      <a href="#" target="_blank">Hoja de vida</a>
-      <a href="#" target="_blank">Behance</a>
+    <div class="footer-inner">
+      <span>© 2026 Thomas Garzón. Todos los derechos reservados</span>
+      <div class="footer-links">
+        <a href="#" target="_blank">LinkedIn</a>
+        <a href="#" target="_blank">Hoja de vida</a>
+        <a href="#" target="_blank">Behance</a>
+      </div>
     </div>
   </footer>
 </div>
@@ -338,222 +366,212 @@
 
 <!-- ═══════════ PROYECTOS ═══════════ -->
 <div class="page" id="page-projects">
-  <div class="breadcrumb">Inicio &rsaquo; <span>Proyectos</span></div>
-  <div class="projects-page">
-    <h1>Mis Proyectos</h1>
-    <div class="projects-divider"></div>
-    <div class="filters">
-      <button class="filter-btn active" onclick="filterProjects('todos',this)">Todos</button>
-      <button class="filter-btn" onclick="filterProjects('app-movil',this)">App Móvil</button>
-      <button class="filter-btn" onclick="filterProjects('diseno-web',this)">Diseño Web</button>
-      <button class="filter-btn" onclick="filterProjects('branding',this)">Branding</button>
-      <button class="filter-btn" onclick="filterProjects('3d',this)">3D</button>
-    </div>
-    <div class="projects-grid">
-      <div class="proj-card-full" data-cat="app-movil">
-        <div class="proj-img-full">
-          <img src="recursos/1.png" alt="Bocados App">
+  <div class="wrapper">
+    <div class="breadcrumb">Inicio &rsaquo; <span>Proyectos</span></div>
+    <div class="projects-page">
+      <h1>Mis Proyectos</h1>
+      <div class="projects-divider"></div>
+      <div class="filters">
+        <button class="filter-btn active" onclick="filterProjects('todos',this)">Todos</button>
+        <button class="filter-btn" onclick="filterProjects('app-movil',this)">App Móvil</button>
+        <button class="filter-btn" onclick="filterProjects('diseno-web',this)">Diseño Web</button>
+        <button class="filter-btn" onclick="filterProjects('branding',this)">Branding</button>
+        <button class="filter-btn" onclick="filterProjects('3d',this)">3D</button>
+      </div>
+      <div class="projects-grid">
+        <div class="proj-card-full" data-cat="app-movil">
+          <div class="proj-img-full"><img src="recursos/1.png" alt="Bocados App"></div>
+          <div class="proj-body">
+            <h3>Bocados</h3><div><span class="tag">App Móvil</span></div>
+            <p>Diseño de una app para explorar restaurantes y descubrir nuevas experiencias gastronómicas.</p>
+            <button class="btn-case">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+          </div>
         </div>
-        <div class="proj-body">
-          <h3>Bocados</h3><div><span class="tag">App Móvil</span></div>
-          <p>Diseño de una app para explorar restaurantes y descubrir nuevas experiencias gastronómicas.</p>
-          <button class="btn-case">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        <div class="proj-card-full" data-cat="app-movil">
+          <div class="proj-img-full"><img src="recursos/2.png" alt="Umi"></div>
+          <div class="proj-body">
+            <h3>Umi</h3><div><span class="tag">App Móvil</span></div>
+            <p>Sistema de señalética integral que combina app móvil con pantallas táctiles y señalización física dentro del campus UMNG.</p>
+            <button class="btn-case">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+          </div>
+        </div>
+        <div class="proj-card-full" data-cat="branding">
+          <div class="proj-img-full"><img src="recursos/3.png" alt="La Nación"></div>
+          <div class="proj-body">
+            <h3>La Nación</h3><div><span class="tag">Branding</span></div>
+            <p>Branding completo y diseño de logotipo para una papelería y miscelánea.</p>
+            <button class="btn-case">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+          </div>
+        </div>
+        <div class="proj-card-full" data-cat="3d">
+          <div class="proj-img-full"><img src="recursos/4.png" alt="Simulación Humo Dinámico"></div>
+          <div class="proj-body">
+            <h3>Simulación Humo Dinámico</h3><div><span class="tag">3D</span></div>
+            <p>Simulación 3D del humo de un carro derrapando, con fundamentos físicos aplicados en Maya.</p>
+            <button class="btn-case">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+          </div>
+        </div>
+        <div class="proj-card-full" data-cat="app-movil">
+          <div class="proj-img-full"><img src="recursos/5.png" alt="Ciclo M"></div>
+          <div class="proj-body">
+            <h3>Ciclo M</h3><div><span class="tag">App Móvil</span></div>
+            <p>App para fomentar la economía circular mediante la gamificación del escaneo de productos reciclables en papelerías afiliadas.</p>
+            <button class="btn-case">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+          </div>
+        </div>
+        <div class="proj-card-full" data-cat="3d">
+          <div class="proj-img-full" style="height:300px; padding:0;">
+            <iframe title="Diorama 3D | Catedral en Ruinas flotante"
+              src="https://sketchfab.com/models/bd6db337d6d54b9284d55d12d233fe79/embed?autostart=1"
+              frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
+              allow="autoplay; fullscreen; xr-spatial-tracking"
+              style="width:100%; height:100%;">
+            </iframe>
+          </div>
+          <div class="proj-body">
+            <h3>Catedral Flotante</h3><div><span class="tag">3D</span></div>
+            <p>El proyecto combina modelado modular, materiales PBR y un estilo visual estilizado, buscando equilibrio entre realismo y arte.</p>
+            <button class="btn-case">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+          </div>
         </div>
       </div>
-      <div class="proj-card-full" data-cat="app-movil">
-        <div class="proj-img-full">
-          <img src="recursos/2.png" alt="Umi">
-        </div>
-        <div class="proj-body">
-          <h3>Umi</h3><div><span class="tag">App Móvil</span></div>
-          <p>Sistema de señalética integral que combina app móvil con pantallas táctiles y señalización física dentro del campus UMNG.</p>
-          <button class="btn-case">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-        </div>
-      </div>
-      <div class="proj-card-full" data-cat="branding">
-        <div class="proj-img-full">
-          <img src="recursos/3.png" alt="La Nación">
-        </div>
-        <div class="proj-body">
-          <h3>La Nación</h3><div><span class="tag">Branding</span></div>
-          <p>Branding completo y diseño de logotipo para una papelería y miscelánea.</p>
-          <button class="btn-case">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-        </div>
-      </div>
-
-      <div class="proj-card-full" data-cat="3d">
-        <div class="proj-img-full">
-          <img src="recursos/4.png" alt="Simulación Humo Dinámico">
-        </div>
-        <div class="proj-body">
-          <h3>Simulación Humo Dinámico</h3><div><span class="tag">3D</span></div>
-          <p>Simulación 3D del humo de un carro derrapando, con fundamentos físicos aplicados en Maya.</p>
-          <button class="btn-case">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-        </div>
-      </div>
-      <div class="proj-card-full" data-cat="app-movil">
-        <div class="proj-img-full">
-          <img src="recursos/5.png" alt="Ciclo M">
-        </div>
-        <div class="proj-body">
-          <h3>Ciclo M</h3><div><span class="tag">App Móvil</span></div>
-          <p>App para fomentar la economía circular mediante la gamificación del escaneo de productos reciclables en papelerías afiliadas.</p>
-          <button class="btn-case">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-        </div>
-      </div>
-      <div class="proj-card-full" data-cat="3d">
-  <div class="proj-img-full" style="height:300px; padding:0;">
-    <iframe title="Diorama 3D | Catedral en Ruinas flotante"
-      src="https://sketchfab.com/models/bd6db337d6d54b9284d55d12d233fe79/embed?autostart=1"
-      frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
-      allow="autoplay; fullscreen; xr-spatial-tracking"
-      style="width:100%; height:100%;">
-    </iframe>
-  </div>
-  <div class="proj-body">
-    <h3>Catedral Flotante</h3><div><span class="tag">3D</span></div>
-    <p>El proyecto combina modelado modular, materiales PBR y un estilo visual estilizado, buscando equilibrio entre realismo y arte.</p>
-    <button class="btn-case">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-  </div>
-</div>
     </div>
   </div>
   <footer>
-    <span>© 2026 Thomas Garzón. Todos los derechos reservados</span>
-    <div class="footer-links"><a href="#" target="_blank">LinkedIn</a><a href="#" target="_blank">Hoja de vida</a><a href="#" target="_blank">Behance</a></div>
+    <div class="footer-inner">
+      <span>© 2026 Thomas Garzón. Todos los derechos reservados</span>
+      <div class="footer-links"><a href="#" target="_blank">LinkedIn</a><a href="#" target="_blank">Hoja de vida</a><a href="#" target="_blank">Behance</a></div>
+    </div>
   </footer>
 </div>
 
 
-
 <!-- ═══════════ SOBRE MÍ ═══════════ -->
 <div class="page" id="page-about">
-  <div class="breadcrumb">Inicio &rsaquo; <span>Sobre Mí</span></div>
-  <div class="about-page">
-    <div class="about-hero">
-      <!--
-        FOTO SOBRE MÍ:
-        Reemplaza el div.photo-placeholder por:
-          <img src="foto.jpg" alt="Thomas Garzón">
-      -->
-      <div class="about-photo">
-        <div class="photo-placeholder">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-          <span>Tu foto aquí</span>
+  <div class="wrapper">
+    <div class="breadcrumb">Inicio &rsaquo; <span>Sobre Mí</span></div>
+    <div class="about-page">
+      <div class="about-hero">
+        <div class="about-photo">
+          <div class="photo-placeholder">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            <span>Tu foto aquí</span>
+          </div>
+        </div>
+        <div class="about-text">
+          <h3>Hola, soy</h3>
+          <h1>Thomas Garzón</h1>
+          <p class="subtitle">Ingeniero Multimedia</p>
+          <p>Soy estudiante de Ingeniería Multimedia con interés en el diseño de experiencias digitales y la construcción de soluciones visuales claras y funcionales. Me enfoco en combinar estructura, estética y pensamiento estratégico en cada proyecto.</p>
         </div>
       </div>
-      <div class="about-text">
-        <h3>Hola, soy</h3>
-        <h1>Thomas Garzón</h1>
-        <p class="subtitle">Ingeniero Multimedia</p>
-        <p>Soy estudiante de Ingeniería Multimedia con interés en el diseño de experiencias digitales y la construcción de soluciones visuales claras y funcionales. Me enfoco en combinar estructura, estética y pensamiento estratégico en cada proyecto.</p>
-      </div>
-    </div>
 
-    <h2 class="about-section-title">Cómo Trabajo</h2>
-    <div class="how-grid">
-      <div class="how-card">
-        <h4>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-          Cómo Trabajo
-        </h4>
-        <ul>
-          <li>Investigo antes de empezar a diseñar</li>
-          <li>Justifico cada decisión con argumentos claros</li>
-          <li>Busco simplicidad y claridad en cada experiencia</li>
-          <li>Creo que lo visual siempre debe tener intención</li>
-        </ul>
+      <h2 class="about-section-title">Cómo Trabajo</h2>
+      <div class="how-grid">
+        <div class="how-card">
+          <h4>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+            Cómo Trabajo
+          </h4>
+          <ul>
+            <li>Investigo antes de empezar a diseñar</li>
+            <li>Justifico cada decisión con argumentos claros</li>
+            <li>Busco simplicidad y claridad en cada experiencia</li>
+            <li>Creo que lo visual siempre debe tener intención</li>
+          </ul>
+        </div>
+        <div class="how-card accent">
+          <h4>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            En Qué Estoy Creciendo
+          </h4>
+          <p>Actualmente, estoy fortaleciendo mis habilidades en <strong>jerarquía visual y en argumentación de decisiones</strong> de diseño para profundizar y defender mejor cada solución propuesta.</p>
+        </div>
       </div>
-      <div class="how-card accent">
-        <h4>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-          En Qué Estoy Creciendo
-        </h4>
-        <p>Actualmente, estoy fortaleciendo mis habilidades en <strong>jerarquía visual y en argumentación de decisiones</strong> de diseño para profundizar y defender mejor cada solución propuesta.</p>
-      </div>
-    </div>
 
-    <div class="cv-card">
-      <h4>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Currículum
-      </h4>
-      <!-- Cambia href="#" por href="cv.pdf" cuando tengas el archivo -->
-      <a href="#" class="btn-cv" target="_blank">Descargar CV</a>
-      <span class="cv-badge">PDF</span>
+      <div class="cv-card">
+        <h4>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Currículum
+        </h4>
+        <a href="#" class="btn-cv" target="_blank">Descargar CV</a>
+        <span class="cv-badge">PDF</span>
+      </div>
     </div>
   </div>
   <footer>
-    <span>© 2026 Thomas Garzón. Todos los derechos reservados</span>
-    <div class="footer-links"><a href="#" target="_blank">LinkedIn</a><a href="#" target="_blank">Hoja de vida</a><a href="#" target="_blank">Behance</a></div>
+    <div class="footer-inner">
+      <span>© 2026 Thomas Garzón. Todos los derechos reservados</span>
+      <div class="footer-links"><a href="#" target="_blank">LinkedIn</a><a href="#" target="_blank">Hoja de vida</a><a href="#" target="_blank">Behance</a></div>
+    </div>
   </footer>
 </div>
 
 
 <!-- ═══════════ CONTACTO ═══════════ -->
 <div class="page" id="page-contact">
-  <div class="breadcrumb">Inicio &rsaquo; <span>Contacto</span></div>
-  <div class="contact-page">
-    <h1>Contacto</h1>
-    <p class="lead">Estoy disponible para <strong>nuevas oportunidades.</strong> ¡Hablemos!</p>
+  <div class="wrapper">
+    <div class="breadcrumb">Inicio &rsaquo; <span>Contacto</span></div>
+    <div class="contact-page">
+      <h1>Contacto</h1>
+      <p class="lead">Estoy disponible para <strong>nuevas oportunidades.</strong> ¡Hablemos!</p>
 
-    <div class="contact-grid">
-      <div class="contact-card">
-        <h4>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          Email
-        </h4>
-        <!-- Cambia el email -->
-        <span class="val">thomasgarzon@email.com</span>
-        <a href="mailto:thomasgarzon@email.com" class="btn-contact">Enviar Mail <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h4>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Email
+          </h4>
+          <span class="val">thomasgarzon@email.com</span>
+          <a href="mailto:thomasgarzon@email.com" class="btn-contact">Enviar Mail <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="contact-card">
+          <h4>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </h4>
+          <span class="val">/thomasgarzon</span>
+          <a href="https://linkedin.com/in/thomasgarzon" target="_blank" class="btn-contact">Ir a LinkedIn <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="contact-card">
+          <h4>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Currículum
+          </h4>
+          <a href="cv.pdf" target="_blank" class="btn-contact outline">Descargar CV</a>
+          <span class="cv-badge">PDF</span>
+        </div>
+        <div class="contact-card">
+          <h4>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+            Behance
+          </h4>
+          <span class="val">/thomasgarzon</span>
+          <a href="https://behance.net/thomasgarzon" target="_blank" class="btn-contact">Ir a Behance <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
       </div>
-      <div class="contact-card">
-        <h4>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          LinkedIn
-        </h4>
-        <!-- Cambia el usuario -->
-        <span class="val">/thomasgarzon</span>
-        <a href="https://linkedin.com/in/thomasgarzon" target="_blank" class="btn-contact">Ir a LinkedIn <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      </div>
-      <div class="contact-card">
-        <h4>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Currículum
-        </h4>
-        <!-- Cambia href por tu CV -->
-        <a href="cv.pdf" target="_blank" class="btn-contact outline">Descargar CV</a>
-        <span class="cv-badge">PDF</span>
-      </div>
-      <div class="contact-card">
-        <h4>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
-          Behance
-        </h4>
-        <!-- Cambia el usuario -->
-        <span class="val">/thomasgarzon</span>
-        <a href="https://behance.net/thomasgarzon" target="_blank" class="btn-contact">Ir a Behance <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      </div>
-    </div>
 
-    <div class="contact-form-wrap">
-      <p>o envíame un mensaje a través del formulario.</p>
-      <button class="btn-contact" onclick="toggleForm()">Formulario de Contacto <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-    </div>
+      <div class="contact-form-wrap">
+        <p>o envíame un mensaje a través del formulario.</p>
+        <button class="btn-contact" onclick="toggleForm()">Formulario de Contacto <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      </div>
 
-    <div class="form-container" id="contact-form">
-      <label for="fname">Nombre</label>
-      <input type="text" id="fname" placeholder="Tu nombre">
-      <label for="femail">Email</label>
-      <input type="email" id="femail" placeholder="tucorreo@email.com">
-      <label for="fmsg">Mensaje</label>
-      <textarea id="fmsg" placeholder="Cuéntame sobre tu proyecto o propuesta..."></textarea>
-      <button class="btn-send">Enviar Mensaje</button>
+      <div class="form-container" id="contact-form">
+        <label for="fname">Nombre</label>
+        <input type="text" id="fname" placeholder="Tu nombre">
+        <label for="femail">Email</label>
+        <input type="email" id="femail" placeholder="tucorreo@email.com">
+        <label for="fmsg">Mensaje</label>
+        <textarea id="fmsg" placeholder="Cuéntame sobre tu proyecto o propuesta..."></textarea>
+        <button class="btn-send">Enviar Mensaje</button>
+      </div>
     </div>
   </div>
   <footer>
-    <span>© 2026 Thomas Garzón. Todos los derechos reservados</span>
-    <div class="footer-links"><a href="#" target="_blank">LinkedIn</a><a href="#" target="_blank">Hoja de vida</a><a href="#" target="_blank">Behance</a></div>
+    <div class="footer-inner">
+      <span>© 2026 Thomas Garzón. Todos los derechos reservados</span>
+      <div class="footer-links"><a href="#" target="_blank">LinkedIn</a><a href="#" target="_blank">Hoja de vida</a><a href="#" target="_blank">Behance</a></div>
+    </div>
   </footer>
 </div>
 
@@ -574,6 +592,7 @@
     document.getElementById('contact-form').classList.toggle('open');
   }
 </script>
+
 <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
 <script type="importmap">
 {
@@ -591,15 +610,13 @@
   window.addEventListener('load', () => {
     const canvas = document.getElementById('hero-canvas');
     const parent = canvas.parentElement;
-
-    // Asegurarse de que el padre tenga altura
-    const W = parent.offsetWidth || window.innerWidth;
-    const H = parent.offsetHeight || window.innerHeight;
+    const W = parent.offsetWidth || 280;
+    const H = parent.offsetHeight || 280;
 
     const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(W, H);
-    renderer.outputColorSpace = THREE.SRGBColorSpace; // outputEncoding está deprecado en r157
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(35, W / H, 0.1, 100);
@@ -612,7 +629,6 @@
 
     let model;
     const loader = new GLTFLoader();
-
     loader.load(
       'recursos/shiba.glb',
       (gltf) => {
@@ -639,7 +655,6 @@
       targetY = (e.clientY / window.innerHeight - 0.5) * 0.3;
     });
 
-    // Resize handler
     window.addEventListener('resize', () => {
       const W2 = parent.offsetWidth;
       const H2 = parent.offsetHeight;
