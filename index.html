@@ -436,6 +436,7 @@
         <button class="filter-btn" onclick="filterProjects('diseno-web',this)">Diseño Web</button>
         <button class="filter-btn" onclick="filterProjects('branding',this)">Branding</button>
         <button class="filter-btn" onclick="filterProjects('3d',this)">3D</button>
+        <button class="filter-btn" onclick="filterProjects('technical-art',this)">Technical Art</button>
       </div>
       <div class="projects-grid">
         <div class="proj-card-full" data-cat="app-movil">
@@ -446,10 +447,14 @@
             <button class="btn-case" onclick="showPage('case-bocados')">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
           </div>
         </div>
-        <div class="proj-card-full" data-cat="app-movil">
+        <div class="proj-card-full" data-cat="app-movil diseno-web">
           <div class="proj-img-full"><img src="recursos/2.png" alt="Umi"></div>
           <div class="proj-body">
-            <h3>Umi</h3><div><span class="tag">App Móvil</span></div>
+            <h3>Umi</h3>
+            <div>
+              <span class="tag">App Móvil</span> 
+              <span class="tag">Diseño Web</span>
+            </div>
             <p>Sistema de señalética integral que combina app móvil con pantallas táctiles y señalización física dentro del campus UMNG.</p>
             <button class="btn-case" onclick="showPage('case-umi')">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
           </div>
@@ -462,10 +467,14 @@
             <button class="btn-case" onclick="showPage('case-nacion')">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
           </div>
         </div>
-        <div class="proj-card-full" data-cat="3d">
+        <div class="proj-card-full" data-cat="technical-art 3d">
           <div class="proj-img-full"><img src="recursos/4.png" alt="Simulación Humo Dinámico"></div>
           <div class="proj-body">
-            <h3>Simulación Humo Dinámico</h3><div><span class="tag">3D</span></div>
+            <h3>Simulación Humo Dinámico</h3>
+            <div>
+              <span class="tag">Technical Art</span> 
+              <span class="tag">3D</span>
+            </div>
             <p>Simulación 3D del humo de un carro derrapando, con fundamentos físicos aplicados en Maya.</p>
             <button class="btn-case" onclick="showPage('case-humo')">Ver Caso Completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
           </div>
@@ -648,10 +657,7 @@
           <div class="meta-item"><span class="meta-label">Plataforma</span><span class="meta-value">iOS & Android</span></div>
         </div>
       </div>
-      <div class="img-ph" style="height: 220px;">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Hero Image: Mockup App Bocados</span>
-      </div>
+      <img src="recursos/1.png" alt="Mockup Bocados" style="width: 100%; height: auto; display: block; border-radius: 14px;">
     </div>
 
     <div class="case-content">
@@ -676,9 +682,8 @@
           <div class="case-num">03 — La Solución</div>
           <div class="case-heading">Exploración visual y "Match"</div>
           <div class="case-body-text">Diseñé una interfaz centrada en la fotografía del alimento, eliminando ruido visual. Implementé una mecánica tipo 'Tinder' donde los usuarios deslizan platos que les apetecen, y la app genera un "match" en grupo cuando coinciden en un restaurante.</div>
-          <div style="display:flex; gap:12px; margin-top:20px;">
-            <div class="img-ph" style="height: 180px;"><span>Wireframe 1</span></div>
-            <div class="img-ph" style="height: 180px;"><span>UI Final (Match)</span></div>
+          <div style="margin-top:2px;">
+            <img src="recursos/bocados1.png" alt="Flujo UI Bocados" class="case-real-img" style="width: 100%; height: auto;">
           </div>
         </div>
       </div>
@@ -717,7 +722,7 @@
           <div class="meta-item"><span class="meta-label">Rol</span><span class="meta-value">UX Researcher & UI Designer</span></div>
         </div>
       </div>
-      <div class="img-ph" style="height: 220px;"><span>Hero Image: Ecosistema Umi (App + Kiosco)</span></div>
+      <img src="recursos/2.png" alt="Mockup Bocados" style="width: 100%; height: auto; display: block; border-radius: 14px;">
     </div>
 
     <div class="case-content">
@@ -742,9 +747,12 @@
             <div class="process-item"><div class="process-dot">2</div><div class="process-text"><strong>Arquitectura:</strong> Mapeo completo del campus y codificación por colores de bloques.</div></div>
             <div class="process-item"><div class="process-dot">3</div><div class="process-text"><strong>Prototipado omnicanal:</strong> Diseño responsivo para móvil y gran formato (kiosco).</div></div>
           </div>
-          <div style="display:flex; gap:12px; margin-top:20px;">
-            <div class="img-ph" style="height: 140px;"><span>Mapa Kiosco</span></div>
-            <div class="img-ph" style="height: 140px;"><span>App Móvil Ruta</span></div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px;">
+            <img src="recursos/umi3.png" alt="Pantalla Umi 3" class="case-real-img" style="height: 180px; object-fit: contain; background: #ffffff;">
+            <img src="recursos/umi4.png" alt="Pantalla Umi 4" class="case-real-img" style="height: 180px; object-fit: contain; background: #ffffff;">
+            
+            <img src="recursos/umi1.png" alt="Pantalla Umi 1" class="case-real-img" style="height: 180px; object-fit: contain; background: #ffffff;">
+            <img src="recursos/umi2.png" alt="Pantalla Umi 2" class="case-real-img" style="height: 180px; object-fit: contain; background: #ffffff;">
           </div>
         </div>
       </div>
@@ -778,7 +786,7 @@
           <div class="meta-item"><span class="meta-label">Rol</span><span class="meta-value">Diseñador Gráfico</span></div>
         </div>
       </div>
-      <div class="img-ph" style="height: 220px;"><span>Hero Image: Mockup Papelería La Nación (Bolsas, Letrero)</span></div>
+      <img src="recursos/3.png" alt="Mockup Bocados" style="width: 100%; height: auto; display: block; border-radius: 14px;">
     </div>
 
     <div class="case-content">
@@ -798,8 +806,8 @@
         <div class="case-section">
           <div class="case-num">03 — Aplicaciones</div>
           <div style="display:flex; gap:12px; margin-top:10px;">
-            <div class="img-ph" style="height: 200px;"><span>Manual de Marca</span></div>
-            <div class="img-ph" style="height: 200px;"><span>Mockup Papelería Fachada</span></div>
+            <img src="recursos/interior.jpeg" alt="Manual de Marca" class="case-real-img" style="height: 200px; object-fit: cover;">
+            <img src="recursos/fachada.jpeg" alt="Mockup Papelería Fachada" class="case-real-img" style="height: 200px; object-fit: cover;">
           </div>
         </div>
       </div>
@@ -833,7 +841,7 @@
           <div class="meta-item"><span class="meta-label">Software</span><span class="meta-value">Autodesk Maya</span></div>
         </div>
       </div>
-      <div class="img-ph" style="height: 220px;"><span>Hero Image: Render Final Humo Derrape</span></div>
+      <video src="recursos/video1.mp4" autoplay loop muted playsinline style="width: 100%; max-height: 500px; object-fit: cover; border-radius: 14px; overflow: hidden; box-shadow: 0 8px 24px rgba(28, 61, 46, 0.1);"></video>
     </div>
 
     <div class="case-content">
@@ -888,7 +896,7 @@
           <div class="meta-item"><span class="meta-label">Rol</span><span class="meta-value">UI/UX Designer</span></div>
         </div>
       </div>
-      <div class="img-ph" style="height: 220px;"><span>Hero Image: Mockup App Ciclo M UI</span></div>
+        <img src="recursos/5.png" alt="Mockup Bocados" style="width: 100%; height: auto; display: block; border-radius: 14px;">
     </div>
 
     <div class="case-content">
@@ -903,8 +911,8 @@
           <div class="case-heading">Motivación a través de recompensas</div>
           <div class="case-body-text">Diseñé el flujo de usuario enfocándome en una gratificación instantánea. La app integra un escáner fácil de usar que permite al usuario registrar papel y cartón en papelerías locales, traduciendo ese peso en puntos visualizados en un dashboard gamificado.</div>
           <div style="display:flex; gap:12px; margin-top:20px;">
-            <div class="img-ph" style="height: 180px;"><span>UI Dashboard Puntos</span></div>
-            <div class="img-ph" style="height: 180px;"><span>UI Escáner QR</span></div>
+            <img src="recursos/ciclom1.png" alt="UI Dashboard Puntos" class="case-real-img" style="height: 180px; object-fit: contain; background: #ffffff;">
+            <img src="recursos/ciclom2.png" alt="UI Escáner QR" class="case-real-img" style="height: 180px; object-fit: contain; background: #ffffff;">
           </div>
         </div>
 
@@ -943,7 +951,14 @@
           <div class="meta-item"><span class="meta-label">Software</span><span class="meta-value">Maya, Substance Painter</span></div>
         </div>
       </div>
-      <div class="img-ph" style="height: 220px;"><span>Hero Image: Render Completo Catedral Flotante</span></div>
+      <div style="width: 100%; height: 350px; border-radius: 14px; overflow: hidden; box-shadow: 0 8px 24px rgba(28, 61, 46, 0.1);">
+        <iframe title="Diorama 3D | Catedral en Ruinas flotante"
+          src="https://sketchfab.com/models/bd6db337d6d54b9284d55d12d233fe79/embed?autostart=1"
+          frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
+          allow="autoplay; fullscreen; xr-spatial-tracking"
+          style="width:100%; height:100%;">
+        </iframe>
+      </div>
     </div>
 
     <div class="case-content">
@@ -991,8 +1006,13 @@
   function filterProjects(cat, btn) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
+    
     document.querySelectorAll('.proj-card-full').forEach(card => {
-      card.style.display = (cat === 'todos' || card.dataset.cat === cat) ? '' : 'none';
+      // Separamos las categorías por el espacio (ej: "app-movil diseno-web")
+      const categorias = card.dataset.cat.split(' ');
+      
+      // Si el filtro es 'todos' o si la lista de categorías incluye el filtro actual, mostramos la tarjeta
+      card.style.display = (cat === 'todos' || categorias.includes(cat)) ? '' : 'none';
     });
   }
   function toggleForm() {
