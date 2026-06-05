@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Thomas Garzón — Ingeniero Multimedia</title>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
@@ -268,6 +269,7 @@
       .about-hero { flex-direction: column; }
       .breadcrumb { padding: 14px 0 0; }
       .case-hero, .case-content { grid-template-columns: 1fr; }
+      #seccion-ar > .wrapper > div[style*='grid'] { grid-template-columns: 1fr !important; }
     }
   </style>
 </head>
@@ -296,14 +298,24 @@
         <h1>Thomas Garzón</h1>
         <p class="subtitle">Ingeniero Multimedia</p>
         <div class="hero-divider"></div>
-        <p>Diseño experiencias digitales estratégicas que combinan investigación, estructura y estética.</p>
+        <p>Diseño interfaces, sistemas de señalética y experiencias 3D — donde la investigación y la estética trabajan juntas para resolver problemas reales.</p>
         <div class="hero-btns">
           <button class="btn-solid" onclick="showPage('projects')">Ver Proyectos</button>
           <button class="btn-outline" onclick="showPage('contact')">Contáctame</button>
         </div>
       </div>
-      <div class="hero-photo">
+      <div class="hero-photo" style="position:relative;">
         <canvas id="hero-canvas" style="width:100%; height:100%; cursor:grab;"></canvas>
+        <div id="canvas-hint" style="
+          position:absolute; bottom:12px; left:50%; transform:translateX(-50%);
+          background:rgba(0,0,0,0.45); color:#fff; font-size:11px; font-weight:500;
+          padding:5px 12px; border-radius:50px; pointer-events:none;
+          display:flex; align-items:center; gap:6px;
+          transition: opacity 0.5s ease;
+        ">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 9l-3 3 3 3M9 5l3-3 3 3M15 19l-3 3-3-3M19 9l3 3-3 3"/></svg>
+          Mueve el mouse
+        </div>
       </div>
     </div>
   </div>
@@ -410,6 +422,52 @@
     </div>
   </div>
 
+
+  <!-- Experiencia AR -->
+  <div class="home-section" id="seccion-ar">
+    <div class="wrapper">
+      <h2 class="section-title">Experiencia en Realidad Aumentada</h2>
+      <p style="font-size:14px; color:var(--muted); margin-bottom:24px; max-width:560px;">
+        Explora este modelo 3D directamente en tu espacio físico. Desde un dispositivo móvil, 
+        presiona el botón <strong style="color:var(--text);">Ver en tu espacio</strong> para activar la cámara y colocar el modelo en el mundo real.
+      </p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:center;">
+        <div>
+          <model-viewer
+            src="recursos/shiba.glb"
+            alt="Shiba Inu 3D — Experiencia de Realidad Aumentada"
+            ar
+            ar-modes="webxr scene-viewer quick-look"
+            camera-controls
+            auto-rotate
+            shadow-intensity="1"
+            style="width:100%; height:340px; border-radius:14px; border:1px solid #e8e8e4; background:#f8f8f5;"
+          ></model-viewer>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:16px;">
+          <div style="background:var(--card-bg); border:1px solid #e8e8e4; border-radius:var(--radius); padding:20px;">
+            <h4 style="font-size:14px; font-weight:700; color:var(--green); margin-bottom:8px; display:flex; align-items:center; gap:8px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+              En Móvil (Android / iOS)
+            </h4>
+            <p style="font-size:13px; color:var(--muted); line-height:1.6;">Toca el botón <strong style="color:var(--text);">AR</strong> que aparece en el visor para activar la cámara y colocar el modelo en tu espacio real mediante WebXR / Scene Viewer / Quick Look.</p>
+          </div>
+          <div style="background:var(--card-bg); border:1px solid #e8e8e4; border-radius:var(--radius); padding:20px;">
+            <h4 style="font-size:14px; font-weight:700; color:var(--green); margin-bottom:8px; display:flex; align-items:center; gap:8px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+              En Desktop
+            </h4>
+            <p style="font-size:13px; color:var(--muted); line-height:1.6;">Interactúa con el modelo 3D usando el mouse: rota, aleja y explora. El botón AR está disponible en dispositivos con soporte WebXR.</p>
+          </div>
+          <div style="background:#f0f7f3; border:1px solid #c4dece; border-radius:var(--radius); padding:16px;">
+            <p style="font-size:12px; color:var(--green-mid); line-height:1.6;">
+              <strong>Tecnología:</strong> Implementado con &lt;model-viewer&gt; de Google, con soporte nativo para WebXR (Android Chrome), Scene Viewer y Quick Look (iOS Safari).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <footer>
     <div class="footer-inner">
       <span>© 2026 Thomas Garzón. Todos los derechos reservados</span>
@@ -624,13 +682,18 @@
       </div>
 
       <div class="form-container" id="contact-form">
-        <label for="fname">Nombre</label>
-        <input type="text" id="fname" placeholder="Tu nombre">
-        <label for="femail">Email</label>
-        <input type="email" id="femail" placeholder="tucorreo@email.com">
-        <label for="fmsg">Mensaje</label>
-        <textarea id="fmsg" placeholder="Cuéntame sobre tu proyecto o propuesta..."></textarea>
-        <button class="btn-send">Enviar Mensaje</button>
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="contact-form-el">
+          <label for="fname">Nombre</label>
+          <input type="text" id="fname" name="nombre" placeholder="Tu nombre" required>
+          <label for="femail">Email</label>
+          <input type="email" id="femail" name="email" placeholder="tucorreo@email.com" required>
+          <label for="fmsg">Mensaje</label>
+          <textarea id="fmsg" name="mensaje" placeholder="Cuéntame sobre tu proyecto o propuesta..." required></textarea>
+          <button type="submit" class="btn-send" id="btn-send-form">Enviar Mensaje</button>
+          <p id="form-success" style="display:none; color:var(--green-mid); font-size:13px; margin-top:12px; font-weight:500;">
+            ✅ ¡Mensaje enviado! Te responderé pronto.
+          </p>
+        </form>
       </div>
     </div>
   </div>
@@ -1003,6 +1066,14 @@
     document.getElementById('page-' + name).classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+  // Ocultar hint del canvas al mover mouse
+  let hintHidden = false;
+  document.addEventListener('mousemove', () => {
+    if (!hintHidden) {
+      const hint = document.getElementById('canvas-hint');
+      if (hint) { hint.style.opacity = '0'; hintHidden = true; }
+    }
+  });
   function filterProjects(cat, btn) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
@@ -1018,6 +1089,24 @@
   function toggleForm() {
     document.getElementById('contact-form').classList.toggle('open');
   }
+  // Formspree submit
+  document.addEventListener('submit', async function(e) {
+    if (e.target.id !== 'contact-form-el') return;
+    e.preventDefault();
+    const btn = document.getElementById('btn-send-form');
+    btn.textContent = 'Enviando...';
+    btn.disabled = true;
+    const data = new FormData(e.target);
+    const res = await fetch(e.target.action, { method:'POST', body:data, headers:{'Accept':'application/json'} });
+    if (res.ok) {
+      document.getElementById('form-success').style.display = 'block';
+      e.target.reset();
+    } else {
+      btn.textContent = 'Error. Intenta de nuevo.';
+    }
+    btn.disabled = false;
+    if (res.ok) btn.textContent = 'Enviado ✅';
+  });
 </script>
 
 <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
