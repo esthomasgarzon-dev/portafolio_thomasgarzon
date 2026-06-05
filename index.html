@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Thomas Garzón — Ingeniero Multimedia</title>
+  <meta name="description" content="Portafolio de Thomas Garzón, Ingeniero Multimedia especializado en UX/UI, diseño de sistemas de señalética, experiencias 3D y Realidad Aumentada.">
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -16,7 +17,7 @@
       --bg:        #f0f0ed;
       --card-bg:   #ffffff;
       --text:      #1a1a1a;
-      --muted:     #6b7280;
+      --muted:     #4b5563;
       --radius:    14px;
       --nav-h:     60px;
       --max-w:     1100px;
@@ -258,6 +259,28 @@
     .side-label { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
     .tool-tag { display: inline-flex; background: var(--bg); border-radius: 6px; padding: 6px 10px; font-size: 12px; color: var(--text); margin: 0 4px 6px 0; font-weight: 500; border: 1px solid #e2e2de;}
 
+
+    /* ── LIGHTBOX ── */
+    .zoomable { cursor: zoom-in; transition: transform 0.2s, box-shadow 0.2s; border-radius: var(--radius); }
+    .zoomable:hover { transform: scale(1.02); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+    #lightbox {
+      display: none; position: fixed; inset: 0; z-index: 999;
+      background: rgba(0,0,0,0.88); align-items: center; justify-content: center;
+      cursor: zoom-out;
+    }
+    #lightbox.open { display: flex; animation: fadeIn .2s ease; }
+    #lightbox img {
+      max-width: 90vw; max-height: 90vh; border-radius: 10px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      object-fit: contain;
+    }
+    #lightbox-close {
+      position: absolute; top: 20px; right: 24px;
+      color: #fff; font-size: 28px; font-weight: 300; cursor: pointer;
+      line-height: 1; background: none; border: none; opacity: 0.7; transition: opacity 0.2s;
+    }
+    #lightbox-close:hover { opacity: 1; }
+
     /* RESPONSIVE */
     @media (max-width: 768px) {
       .wrapper { padding: 0 20px; }
@@ -484,7 +507,7 @@
 <!-- ═══════════ PROYECTOS ═══════════ -->
 <div class="page" id="page-projects">
   <div class="wrapper">
-    <div class="breadcrumb">Inicio &rsaquo; <span>Proyectos</span></div>
+    <div class="breadcrumb"><a onclick="showPage('home')">Inicio</a> &rsaquo; <span>Proyectos</span></div>
     <div class="projects-page">
       <h1>Mis Proyectos</h1>
       <div class="projects-divider"></div>
@@ -575,7 +598,7 @@
 <!-- ═══════════ SOBRE MÍ ═══════════ -->
 <div class="page" id="page-about">
   <div class="wrapper">
-    <div class="breadcrumb">Inicio &rsaquo; <span>Sobre Mí</span></div>
+    <div class="breadcrumb"><a onclick="showPage('home')">Inicio</a> &rsaquo; <span>Sobre Mí</span></div>
     <div class="about-page">
       <div class="about-hero">
         <div class="about-photo">
@@ -636,7 +659,7 @@
 <!-- ═══════════ CONTACTO ═══════════ -->
 <div class="page" id="page-contact">
   <div class="wrapper">
-    <div class="breadcrumb">Inicio &rsaquo; <span>Contacto</span></div>
+    <div class="breadcrumb"><a onclick="showPage('home')">Inicio</a> &rsaquo; <span>Contacto</span></div>
     <div class="contact-page">
       <h1>Contacto</h1>
       <p class="lead">Estoy disponible para <strong>nuevas oportunidades.</strong> ¡Hablemos!</p>
@@ -708,7 +731,7 @@
 <!-- ═══════════ CASO 1: BOCADOS ═══════════ -->
 <div class="page" id="page-case-bocados">
   <div class="wrapper">
-    <div class="breadcrumb"><a onclick="showPage('projects')">Proyectos</a> &rsaquo; <span>Bocados</span></div>
+    <div class="breadcrumb"><a onclick="showPage('home')">Inicio</a> &rsaquo; <a onclick="showPage('projects')">Proyectos</a> &rsaquo; <span>Bocados</span></div>
     
     <div class="case-hero">
       <div>
@@ -774,7 +797,7 @@
 <!-- ═══════════ CASO 2: UMI ═══════════ -->
 <div class="page" id="page-case-umi">
   <div class="wrapper">
-    <div class="breadcrumb"><a onclick="showPage('projects')">Proyectos</a> &rsaquo; <span>Umi</span></div>
+    <div class="breadcrumb"><a onclick="showPage('home')">Inicio</a> &rsaquo; <a onclick="showPage('projects')">Proyectos</a> &rsaquo; <span>Umi</span></div>
     
     <div class="case-hero">
       <div>
@@ -838,7 +861,7 @@
 <!-- ═══════════ CASO 3: LA NACIÓN ═══════════ -->
 <div class="page" id="page-case-nacion">
   <div class="wrapper">
-    <div class="breadcrumb"><a onclick="showPage('projects')">Proyectos</a> &rsaquo; <span>La Nación</span></div>
+    <div class="breadcrumb"><a onclick="showPage('home')">Inicio</a> &rsaquo; <a onclick="showPage('projects')">Proyectos</a> &rsaquo; <span>La Nación</span></div>
     
     <div class="case-hero">
       <div>
@@ -893,7 +916,7 @@
 <!-- ═══════════ CASO 4: SIMULACIÓN HUMO ═══════════ -->
 <div class="page" id="page-case-humo">
   <div class="wrapper">
-    <div class="breadcrumb"><a onclick="showPage('projects')">Proyectos</a> &rsaquo; <span>Simulación Humo</span></div>
+    <div class="breadcrumb"><a onclick="showPage('home')">Inicio</a> &rsaquo; <a onclick="showPage('projects')">Proyectos</a> &rsaquo; <span>Simulación Humo</span></div>
     
     <div class="case-hero">
       <div>
@@ -948,7 +971,7 @@
 <!-- ═══════════ CASO 5: CICLO M ═══════════ -->
 <div class="page" id="page-case-ciclom">
   <div class="wrapper">
-    <div class="breadcrumb"><a onclick="showPage('projects')">Proyectos</a> &rsaquo; <span>Ciclo M</span></div>
+    <div class="breadcrumb"><a onclick="showPage('home')">Inicio</a> &rsaquo; <a onclick="showPage('projects')">Proyectos</a> &rsaquo; <span>Ciclo M</span></div>
     
     <div class="case-hero">
       <div>
@@ -1003,7 +1026,7 @@
 <!-- ═══════════ CASO 6: CATEDRAL FLOTANTE ═══════════ -->
 <div class="page" id="page-case-catedral">
   <div class="wrapper">
-    <div class="breadcrumb"><a onclick="showPage('projects')">Proyectos</a> &rsaquo; <span>Catedral Flotante</span></div>
+    <div class="breadcrumb"><a onclick="showPage('home')">Inicio</a> &rsaquo; <a onclick="showPage('projects')">Proyectos</a> &rsaquo; <span>Catedral Flotante</span></div>
     
     <div class="case-hero">
       <div>
@@ -1060,7 +1083,39 @@
   </footer>
 </div>
 
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightbox()">
+  <button id="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="Imagen ampliada">
+</div>
+
+
 <script>
+
+  // Lightbox
+  function openLightbox(src, alt) {
+    const lb = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    img.src = src;
+    img.alt = alt || '';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+  // Auto-aplicar lightbox a todas las imagenes de casos al cargar
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.case-real-img, .case-hero img').forEach(img => {
+      img.classList.add('zoomable');
+      img.addEventListener('click', () => openLightbox(img.src, img.alt));
+    });
+  });
+
   function showPage(name) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById('page-' + name).classList.add('active');
